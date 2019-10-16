@@ -1,5 +1,5 @@
 {
-  "name": "projectManagementAppDB",
+  "name": "project-management-app-db",
   "version": "0.0.1",
   "main": "app.start.js",
   "license": "MIT",
