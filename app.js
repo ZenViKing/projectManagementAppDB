@@ -1,8 +1,10 @@
 import express from 'express';
 import {connect} from './utils/db';
+import userRouter from './ressources/user/user.router';
 
 const app = express();
 
+app.use('api/users', userRouter);
 
 const start = async () => {
     try{
