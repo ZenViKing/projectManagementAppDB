@@ -47,3 +47,13 @@ export const updateOne = async (req, res) => {
     }
 }
 
+export const deleteOne = async (req, res) => {
+    try {
+        const deletedTask = await Task.findByIdAndDelete({_id:req.params.id});
+        if(!deletedTask) return res.status(400).end();
+        res.status(200).json({tasks : deletedTask});
+    } catch(err) {
+        console.error(err);
+        res.status(400).end();
+    }
+}
