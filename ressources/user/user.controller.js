@@ -31,3 +31,18 @@ export const getOne = async (req, res) => {
         res.status(400).end();
     }
 }
+
+export const updateOne = async (req, res) => {
+    try {
+        const updatedUser = await User.findOneAndUpdate(
+            {_id:req.params.id},
+            req.body,
+            {new:true}
+        );
+        if(!updatedUser) return res.status(400).end();
+        res.status(200).json({Users : updatedUser});
+    } catch(err) {
+        console.error(err);
+        res.status(400).end();
+    }
+}

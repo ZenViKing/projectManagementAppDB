@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createUser, list, getOne} from './user.controller';
+import { createUser, list, getOne, updateOne} from './user.controller';
 
 const router = Router();
 
@@ -11,5 +11,6 @@ router
 router
     .route('/:id')
     .get(getOne)
+    .patch(updateOne)
 
 export default router;
