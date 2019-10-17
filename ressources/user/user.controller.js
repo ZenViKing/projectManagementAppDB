@@ -46,3 +46,14 @@ export const updateOne = async (req, res) => {
         res.status(400).end();
     }
 }
+
+export const deleteOne = async (req, res) => {
+    try {
+        const deletedUser = await User.findByIdAndDelete({_id:req.params.id});
+        if(!deletedUser) return res.status(400).end();
+        res.status(200).json({Users : deletedUser});
+    } catch(err) {
+        console.error(err);
+        res.status(400).end();
+    }
+}
