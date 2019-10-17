@@ -1,12 +1,15 @@
 import { Router } from 'express';
-import { createUser, list} from './user.controller';
+import { createUser, list, getOne} from './user.controller';
 
 const router = Router();
 
 router
     .route('/')
-    .post(createUser)
     .get(list)
+    .post(createUser)
     
+router
+    .route('/:id')
+    .get(getOne)
 
 export default router;

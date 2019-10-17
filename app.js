@@ -10,7 +10,7 @@ app.use(urlencoded({extended:true}));
 
 
 
-app.use('api/users', userRouter);
+app.use('/api/users', userRouter);
 
 const start = async () => {
     try{
