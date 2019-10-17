@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createTask, getAllTasks } from './task.controller';
+import { createTask, getAllTasks, getOne, updateOne } from './task.controller';
 
 const router = Router();
 
@@ -9,6 +9,8 @@ router
     .post(createTask)
 router
     .route('/:id')
-    
+    .get(getOne)
+    .patch(updateOne)
+
 
 export default router;

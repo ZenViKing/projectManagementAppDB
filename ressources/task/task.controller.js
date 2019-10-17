@@ -20,3 +20,30 @@ export const getAllTasks = async (req, res) => {
         res.status(400).end();
     }
 }
+
+export const getOne = async (req, res) => {
+    try {
+        const task = await Task.findOne({_id:req.params.id});
+        if(!task) return res.status(400).end();
+        res.status(200).json({tasks:task});
+    } catch(err) {
+        console.error(err);
+        res.status(400).end();
+    }
+}
+
+export const updateOne = async (req, res) => {
+    try {
+        const updatedTask = await Task.findOneAndUpdate(
+            {_id:req.params.id},
+            req.body,
+            {new:true}
+        );
+        if(!updatedTask) return res.status(400).end();
+        res.status(200).json({tasks:updatedTask});
+    } catch(err) {
+        console.error(err);
+        res.status(400).end();
+    }
+}
+
