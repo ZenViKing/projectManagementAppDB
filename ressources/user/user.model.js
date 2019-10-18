@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 const userSchema = new mongoose.Schema({
-    nom: String,
-    prenom: String,
+    lastname: String,
+    firstname: String,
     email: String,
-    fonction: String
+    function: String
 });
 
 export const User = mongoose.model('user', userSchema);

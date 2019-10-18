@@ -1,17 +1,17 @@
 import { Router } from 'express';
-import { createUser, list, getOne, updateOne, deleteOne} from './user.controller';
+import { createTask, getAllTasks, getOne, updateOne, deleteOne } from './task.controller';
 
 const router = Router();
 
 router
     .route('/')
-    .get(list)
-    .post(createUser)
-    
+    .get(getAllTasks)
+    .post(createTask)
 router
     .route('/:id')
     .get(getOne)
     .patch(updateOne)
     .delete(deleteOne)
+
 
 export default router;
