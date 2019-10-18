@@ -1,10 +1,11 @@
 import { Router } from 'express';
-import { addProject } from './project.controller';
+import { createProject, listProject } from './project.controller';
 
 const router = Router();
 
 router
   .route('/')
-  .post(addProject)
+  .post(createProject)
+  .get(listProject)
 
 export default router;

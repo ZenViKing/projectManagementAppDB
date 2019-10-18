@@ -9,3 +9,14 @@ export const createProject = async (req,res) => {
     res.status(400).end();
   }
 }
+
+export const listProject = async (req,res) => {
+  try {
+    const projects = await Project.find();
+    if(!projects) return res.status(400).end();
+    res.status(200).json({projects});
+  } catch (err) {
+    console.error(err);
+    res.status(400).end();
+  }
+}

@@ -3,6 +3,7 @@ import {connect} from './utils/db';
 import {json, urlencoded} from 'body-parser';
 import userRouter from './ressources/user/user.router';
 import taskRouter from './ressources/task/task.router';
+import projectRouter from './ressources/project/project.router';
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(urlencoded({extended:true}));
 
 app.use('/api/users', userRouter);
 app.use('/api/tasks', taskRouter);
+app.use('/api/projects', projectRouter);
 
 const start = async () => {
     try{
