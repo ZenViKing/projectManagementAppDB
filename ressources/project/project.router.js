@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createProject, listProject, getProject } from './project.controller';
+import { createProject, listProject, getProject, updateProject } from './project.controller';
 
 const router = Router();
 
@@ -11,5 +11,6 @@ router
 router
   .route('/:id')
   .get(getProject)
+  .patch(updateProject)
 
-export default router;
+  export default router;
