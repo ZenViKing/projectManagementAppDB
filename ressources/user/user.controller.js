@@ -2,7 +2,9 @@ import { User } from './user.model';
 
 export const createUser = async (req,res)=>{
     try {
-        const user = await User.create({...req.body});
+        const user = await User.create(
+            {...req.body}
+        );
         res.status(201).json({Users : user});
     } catch(err) {
         console.error(err);
