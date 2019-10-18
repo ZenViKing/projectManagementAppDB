@@ -42,3 +42,14 @@ export const updateProject = async (req,res) => {
     res.status(400).end();
   }
 }
+
+export const deleteProject = async (req,res) => {
+  try {
+    const project = await Project.findByIdAndDelete({_id:req.params.id});
+    if(!project) return res.status(400).end();
+    res.status(200).json({project : project});
+  } catch (err) {
+    console.error(err);
+    res.status(400).end();
+  }
+}
