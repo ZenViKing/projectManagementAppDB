@@ -4,9 +4,11 @@ import {json, urlencoded} from 'body-parser';
 import userRouter from './ressources/user/user.router';
 import taskRouter from './ressources/task/task.router';
 import projectRouter from './ressources/project/project.router';
+import cors from 'cors';
 
 const app = express();
 
+app.use(cors());
 app.use(json());
 app.use(urlencoded({extended:true}));
 
