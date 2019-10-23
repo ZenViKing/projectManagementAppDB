@@ -16,7 +16,7 @@ export const list = async (req,res)=>{
     try {
         const users = await User.find();
         if(!users) return res.status(400).end();
-        res.status(200).json({Users : users});
+        res.status(200).json(users);
     } catch(err) {
         console.error(err);
         res.status(400).end();
