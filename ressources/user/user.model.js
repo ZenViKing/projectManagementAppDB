@@ -3,7 +3,7 @@ const userSchema = new mongoose.Schema({
     lastname: String,
     firstname: String,
     email: String,
-    function: String,
+    fonction: String,
     idUser: Number
 });
 
