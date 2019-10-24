@@ -14,7 +14,7 @@ export const getAllTasks = async (req, res) => {
     try {
         const tasks = await Task.find();
         if(!tasks) return res.status(400).end();
-        res.status(200).json({tasks});
+        res.status(200).json(tasks);
     } catch(err) {
         console.error(err);
         res.status(400).end();
