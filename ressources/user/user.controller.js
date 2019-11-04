@@ -2,9 +2,25 @@ import { User } from './user.model';
 
 export const createUser = async (req,res)=>{
     try {
-        const user = await User.create(
-            {...req.body}
-        );
+        let user;
+        if(user) {
+            console.log('That user is already exist.');
+            return res.status(400).end();
+        }
+        else {
+            var newUser = new User();
+            newUser.lastname = req.body.lastname;
+            newUser.firstname = req.body.firstname;
+            newUser.email = req.body.email;
+            newUser.fonction = req.body.fonction;
+            newUser.password = newUser.generateHash(req.body.password);
+        }
+    } catch(err) {
+        console.error(err);
+        res.status(400).end();
+    }
+    try {
+        const user = await User.create(newUser);
         res.status(201).json({Users : user});
     } catch(err) {
         console.error(err);
