@@ -1,4 +1,5 @@
 import { User } from './user.model';
+import jwt from 'jsonwebtoken';
 
 export const createUser = async (req,res)=>{
     try {
@@ -70,6 +71,26 @@ export const deleteOne = async (req, res) => {
         const deletedUser = await User.findByIdAndDelete({_id:req.params.id});
         if(!deletedUser) return res.status(400).end();
         res.status(200).json({Users : deletedUser});
+    } catch(err) {
+        console.error(err);
+        res.status(400).end();
+    }
+}
+
+export const login = async (req,res)=>{
+    try {
+        const user = await User.findOne({email:req.body.email});
+        if(user) {
+            if(user.validPassword(req.body.password)) {
+                jwt.sign({user}, 'secretkey', { expiresIn: '1h' }, (err, token) => {
+                    if(err) {
+                        res.status(403).end();
+                    } else {
+                        res.json(token);
+                    }
+                });
+            }
+        } 
     } catch(err) {
         console.error(err);
         res.status(400).end();

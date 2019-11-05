@@ -5,6 +5,7 @@ export const verify = (req, res, next) => {
         if(err) {
         res.status(403).end();
         } else {
+            console.log('verify');
             next();
         }
     })
