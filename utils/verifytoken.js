@@ -9,6 +9,7 @@ export const verifyToken = (req, res, next) => {
       console.log('verifytoken');
       next();
     } else {
+      // console.log('Error verifytoken');
       res.status(403).end();
     }
   

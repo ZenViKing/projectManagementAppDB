@@ -86,7 +86,11 @@ export const login = async (req,res)=>{
                     if(err) {
                         res.status(403).end();
                     } else {
-                        res.json(token);
+                        res.json({
+                            token,
+                            currentUser : user.email,
+                            userFonction : user.fonction
+                        });
                     }
                 });
             }

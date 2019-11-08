@@ -1,8 +1,9 @@
 export const verifyRole = (req, res, next) => {
-    if(req.body.fonction == 'Project Manager') {
+    if(req.userFonction == 'Project Manager') {
         next();
     }
     else {
+        console.log('Error verifyrole');
         res.status(403).end();
     }
 }
