@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { createTask, getAllTasks, getOne, updateOne, deleteOne } from './task.controller';
 
-const router = Router();
+const router = Router({ mergeParams: true });
 
 router
     .route('/')
