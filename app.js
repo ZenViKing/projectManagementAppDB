@@ -13,7 +13,9 @@ app.use(json());
 app.use(urlencoded({extended:true}));
 
 app.use('/api/users', userRouter);
-app.use('/api/projects/:id/tasks', taskRouter);
+// app.use('/api/projects/:id/tasks', taskRouter);
+app.use('/api/tasks', taskRouter);
+
 app.use('/api/projects', projectRouter);
 
 const start = async () => {
