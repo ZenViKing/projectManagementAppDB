@@ -1,15 +1,15 @@
 import { Router } from 'express';
 import { createProject, listProject, getProject, updateProject, deleteProject } from './project.controller';
 // import { verifyRole } from '../../utils/verifyrole';
-import { verify } from '../../utils/verify';
-import { verifyToken } from '../../utils/verifytoken';
+// import { verify } from '../../utils/verify';
+// import { verifyToken } from '../../utils/verifytoken';
 
 const router = Router();
 
 router
   .route('/')
-  .post(verifyToken, verify, createProject)
-  .get(verifyToken, verify, listProject)
+  .post(createProject)
+  .get(listProject)
 
 router
   .route('/:id')
