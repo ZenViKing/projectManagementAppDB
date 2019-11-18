@@ -3,7 +3,8 @@ const taskSchema = new mongoose.Schema({
     name: String,
     desc: String,
     assignedUsers: Array,
-    status: String,
+    status: {type: String, default: 'backlogs'},
+    priority: String,
     project: String
 });
 
