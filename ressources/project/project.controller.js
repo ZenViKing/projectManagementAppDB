@@ -31,7 +31,7 @@ export const getProject = async (req,res) => {
   try {
     const project = await Project.findOne({_id:req.params.id});
     if(!project) return res.status(400).end();
-    res.status(200).json({projects : project});
+    res.status(200).json({project});
   } catch (err) {
     console.error(err);
     res.status(400).end();
