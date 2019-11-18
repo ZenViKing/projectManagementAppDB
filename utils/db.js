@@ -2,6 +2,6 @@ import mongoose from 'mongoose';
 export const connect = (url = 'mongodb://@localhost:27017/projectplanner', opts={}) => {
     return mongoose.connect(
         url,
-        {...opts, useNewUrlParser:true}
+        {...opts, useUnifiedTopology: true, useNewUrlParser:true}
     );
 };
