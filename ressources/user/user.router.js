@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createUser, list, getOne, updateOne, deleteOne} from './user.controller';
+import { createUser, list, getOne, updateOne, deleteOne, login} from './user.controller';
 
 const router = Router();
 
@@ -13,5 +13,9 @@ router
     .get(getOne)
     .patch(updateOne)
     .delete(deleteOne)
+
+router
+    .route('/login')
+    .post(login)
 
 export default router;
