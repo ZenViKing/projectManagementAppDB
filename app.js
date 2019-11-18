@@ -13,9 +13,14 @@ app.use(json());
 app.use(urlencoded({extended:true}));
 
 app.use('/api/users', userRouter);
+<<<<<<< HEAD
 app.use('/api/projects/:id/tasks', taskRouter);
 // app.use('/api/tasks', taskRouter);
 
+=======
+// app.use('/api/projects/:id/tasks', taskRouter);
+app.use('/api/tasks', taskRouter);
+>>>>>>> 38554f44b81df904c318a189c630c880ed705faa
 app.use('/api/projects', projectRouter);
 
 const start = async () => {
