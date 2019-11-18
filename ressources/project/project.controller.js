@@ -41,7 +41,7 @@ export const updateProject = async (req, res) => {
   try {
     const project = await Project.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
     if (!project) return res.status(400).end();
-    res.status(200).json({ Projects: project });
+    res.status(200).json({ project });
   } catch (err) {
     console.error(err);
     res.status(400).end();
