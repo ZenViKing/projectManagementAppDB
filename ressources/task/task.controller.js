@@ -28,7 +28,7 @@ export const getOne = async (req, res) => {
     try {
         const task = await Task.findOne({ _id: req.params.id });
         if (!task) return res.status(400).end();
-        res.status(200).json({ tasks: task });
+        res.status(200).json(task);
     } catch (err) {
         console.error(err);
         res.status(400).end();
@@ -37,13 +37,20 @@ export const getOne = async (req, res) => {
 
 export const updateOne = async (req, res) => {
     try {
+        console.log(req.params.id);
+        console.log(req.body);
+        // console.log(req);
+
+
         const updatedTask = await Task.findOneAndUpdate(
             { _id: req.params.id },
             req.body,
             { new: true }
         );
+        // console.log(updatedTask);
+
         if (!updatedTask) return res.status(400).end();
-        res.status(200).json({ tasks: updatedTask });
+        res.status(200).json(updatedTask);
     } catch (err) {
         console.error(err);
         res.status(400).end();

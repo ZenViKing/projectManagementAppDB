@@ -12,6 +12,8 @@ export const createProject = async (req, res) => {
 
 export const listProject = async (req, res) => {
   try {
+
+
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     const projects = await Project.find();
     if (!projects) return res.status(400).end();
