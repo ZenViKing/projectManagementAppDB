@@ -82,14 +82,15 @@ export const login = async (req,res)=>{
         const user = await User.findOne({email:req.body.email});
         if(user) {
             if(user.validPassword(req.body.password)) {
-                jwt.sign({user}, 'secretkey', { expiresIn: '1h' }, (err, token) => {
+                jwt.sign({user}, 'secretkey', { expiresIn: '3600s' }, (err, token) => {
                     if(err) {
                         res.status(403).end();
                     } else {
+                        console.log('It\'s validated');
                         res.json({
                             token,
-                            currentUser : user.email,
-                            userFonction : user.fonction
+                            email : user.email,
+                            fonction : user.fonction
                         });
                     }
                 });
