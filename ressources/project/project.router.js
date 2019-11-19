@@ -9,7 +9,7 @@ const router = Router();
 router
   .route('/')
   .post(createProject)
-  .get(listProject)
+  .get(verifyToken, verify, listProject)
 
 router
   .route('/:id')
