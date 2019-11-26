@@ -86,7 +86,6 @@ export const login = async (req,res)=>{
                     if(err) {
                         res.status(403).end();
                     } else {
-                        console.log('It\'s validated');
                         res.json({
                             token,
                             email : user.email,
